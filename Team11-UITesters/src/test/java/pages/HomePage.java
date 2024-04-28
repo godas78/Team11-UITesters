@@ -1,6 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +14,14 @@ public class HomePage {
 
 	WebDriver driver;
 	
-	@FindBy(xpath = "//a[@href='/login']") WebElement loginBtn;
+	@FindBy(xpath = "//*[@id='login']/span[1]")
+	WebElement loginBtn;
+	@FindBy(xpath = "//input[@id='username']")
+	WebElement username;
+	@FindBy(xpath="//input[@id='password']") 
+	WebElement password;
+	
+	
 		
 	public HomePage(WebDriver driver)
 	{
@@ -24,15 +31,23 @@ public class HomePage {
 	
 	public void GoToHomePage()
 	{
-		driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getHomePageUrl());
-		Log.info("User navigated to Home Page");
+		driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
+		Log.info("User navigated to LMS Web Page");
 	}
 
 	public String VerifyHomePageURL()
 	{
-		Assert.assertEquals(driver.getCurrentUrl(), FileReaderManager.getInstance().getConfigReader().getHomePageUrl());
-		Log.info("Verifies that user is on Home Page");
+		Assert.assertEquals(driver.getCurrentUrl(), FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
+		Log.info("Verifies that user is on LMS Web Page");
 		return null;
+	}
+	
+	public void ClickOnSignIn()
+	{
+		username.sendKeys(FileReaderManager.getInstance().getConfigReader().getLMSUserName());
+		password.sendKeys(FileReaderManager.getInstance().getConfigReader().getLMSPassword());
+		loginBtn.click();
+		Log.info("User clicked on Sign in");
 	}
 	
 	/*public void VerifyNotSignedIn()
@@ -47,57 +62,9 @@ public class HomePage {
 		Log.info("Verifies that user is logged in");
 	}
 	
-	public void ClickOnSignIn()
-	{
-		loginBtn.click();
-		Log.info("User clicked on Sign in");
-	}
 	
-	public void ClickOnRegister() {
-		registerBtn.click();
-	}
 	
-	public void ClickOnDataStructures()
-	{
-		dataStructureBtn.click();
-		Log.info("User clicked on Get Started button for Data Structure");
-	}
 	
-	public void ClickOnArray()
-	{
-		arrayBtn.click();
-		Log.info("User clicked on Get Started button for Array");
-	}
-	
-	public void ClickOnStack()
-	{
-		stackBtn.click();
-		Log.info("User clicked on Get Started button for Stack");
-	}
-	
-	public void ClickOnLinkedList()
-	{
-		linkedListBtn.click();
-		Log.info("User clicked on Get Started button for Linked List");
-	}
-	
-	public void ClickOnTree()
-	{
-		treeBtn.click();
-		Log.info("User clicked on Get Started button for Tree");
-	}
-	
-	public void ClickOnGraph()
-	{
-		graphBtn.click();
-		Log.info("User clicked on Get Started button for Graph");
-	}
-	
-	public void ClickOnQueue()
-	{
-		queueBtn.click();
-		Log.info("User clicked on Get Started button for Queue");
-	}
 	
 	public void VerifyLoginErrorMsg()
 	{
@@ -123,19 +90,7 @@ public class HomePage {
 		Log.info("Verified the success message for log out");
 	}
 	
-	public void ClickOnDataStructuresDropdown() {
-		dataStructuresDropdown.click();
-	}
 	
-	public void ClickonDataStructureLinkname(String linkname) {
-		WebElement element = driver.findElement(By.xpath("//a[@href='" + linkname + "']"));
-		element.click();
-	}
-
-	public void ClickonDataStructureDropDown(String linkname) {
-		WebElement element = driver.findElement(By.xpath("//a[@href='" + linkname + "']"));
-		element.click();
-	}
 	
 	public void VerifySuccessfulRegistration(String userName) {
 		String expectedMsg =  FileReaderManager.getInstance().getConfigReader().getSuccessfulRegisterationMsg() + userName;

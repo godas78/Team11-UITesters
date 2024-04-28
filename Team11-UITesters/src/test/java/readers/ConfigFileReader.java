@@ -82,106 +82,7 @@ public class ConfigFileReader {
 			throw new RuntimeException("homePageUrl not specified in the Configuration.properties file.");
 	}
 	
-	/*public String getRegisterPageURL() {
-		String registerurl = properties.getProperty("registerPageUrl");
-		if (registerurl != null)
-			return registerurl;
-		else
-			throw new RuntimeException("registerPageUrl not specified in the Config.properties file");
-	}
 	
-	public String getArrayPageUrl() {
-		String url = properties.getProperty("arrayPageUrl");
-		if (url != null)
-			return url;
-		else
-			throw new RuntimeException("arrayPageUrl not specified in the Configuration.properties file.");
-	}
-	
-	public String getTreePageUrl() {
-		String url = properties.getProperty("treePageUrl");
-		if (url != null)
-			return url;
-		else
-			throw new RuntimeException("treePageUrl not specified in the Configuration.properties file.");
-	}
-	
-	public String getStackPageUrl() {
-		String url = properties.getProperty("stackPageUrl");
-		if (url != null)
-			return url;
-		else
-			throw new RuntimeException("stackPageUrl not specified in the Configuration.properties file.");
-	}
-	
-	public String getLinkedListPageUrl() {
-		String url = properties.getProperty("linkedListUrl");
-		if (url != null)
-			return url;
-		else
-			throw new RuntimeException("linkedListUrl not specified in the Configuration.properties file.");
-	}
-
-	public String getPracticePageUrl() {
-		String url = properties.getProperty("practicePageUrl");
-		if (url != null)
-			return url;
-		else
-			throw new RuntimeException("practicePageUrl not specified in the Configuration.properties file.");
-	}
-
-	public String getEditorPageUrl() {
-		String url = properties.getProperty("editorPageUrl");
-		if (url != null)
-			return url;
-		else
-			throw new RuntimeException("editorPageUrl not specified in the Configuration.properties file.");
-	}
-	
-	public String getLoginPageURL() {
-		String loginurl = properties.getProperty("loginPageUrl");
-		if (loginurl != null)
-			return loginurl;
-		else
-			throw new RuntimeException("loginPageUrl not specified in the Config.properties file");
-	}
-
-
-	public String getQuestionPageUrl() {
-		String url = properties.getProperty("questionPageUrl");
-		if (url != null)
-			return url;
-		else
-			throw new RuntimeException("questionPageUrl not specified in the Configuration.properties file.");
-	}
-	
-	public String getOperationInStackUrl() 
-	{
-		String url = properties.getProperty("operationInStackPageUrl");
-		if(url != null) 
-			return url;
-		else 
-			throw new RuntimeException("operationInStackPageUrl not specified in the Configuration.properties file.");
-	}	
-	
-	public String getImplimentationUrl() 
-	{
-		String url = properties.getProperty("implimentationPageUrl");
-		if(url != null) 
-			return url;
-		else 
-			throw new RuntimeException("implimentationPageUrl not specified in the Configuration.properties file.");
-	}	
-	
-	public String getStackApplicationUrl() 
-	{
-		String url = properties.getProperty("stackApplicationPageUrl");
-		if(url != null) 
-			return url;
-		else 
-			throw new RuntimeException("stackApplicationPageUrl not specified in the Configuration.properties file.");
-	}	*/
-
 	//readers
 	
 	public String getExcelPath() {
@@ -200,22 +101,31 @@ public class ConfigFileReader {
 			throw new RuntimeException("screenshotPath not specified in the Configuration.properties file.");
 	}
 
-	/*public String getDSAlgoUserName() {
-		String username = properties.getProperty("dsAlgoUserName");
+	public String getLMSUserName() {
+		String username = properties.getProperty("LMSUserName");
 		if (username != null)
 			return username;
 		else
-			throw new RuntimeException("dsAlgoUserName not specified in the Configuration.properties file.");
+			throw new RuntimeException("LMSUserName not specified in the Configuration.properties file.");
 	}
 
-	public String getDSAlgoPassword() {
-		String password = properties.getProperty("dsAlgoPassword");
+	public String getLMSPassword() {
+		String password = properties.getProperty("LMSPassword");
 		if (password != null)
 			return password;
 		else
-			throw new RuntimeException("dsAlgoPassword not specified in the Configuration.properties file.");
+			throw new RuntimeException("LMSPassword not specified in the Configuration.properties file.");
+	}
+	public String getexpectedTextHeading() 
+	{
+		String url = properties.getProperty("expectedTextHeading");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("expectedTextHeading is not specified in the Configuration.properties file.");
 	}
 
+	/*
 	public String getValidLoginMsg() {
 		String msg = properties.getProperty("validLoginMsg");
 		if (msg != null)
