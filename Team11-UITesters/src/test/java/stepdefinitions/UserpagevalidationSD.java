@@ -63,7 +63,7 @@ public class UserpagevalidationSD {
 	@Then("Admin should see the text as {string} along with Pagination icon below the table for usermodule.")
 	public void admin_text_with_pagination_icon_below_the_table(String string) {
 		userpagevalidation.validatepagination_user_text();
-		//userpagevalidation.validatepagination_allPages();
+		
 	}
 
 	@Then("Admin Should see the data table with column names Id, Name, location, Phone Number, Edit\\/Delete")
@@ -84,68 +84,63 @@ public class UserpagevalidationSD {
 
 	@Then("Admin should be able to see the search text box above the data table")
 	public void admin_should_be_able_to_see_the_search_text_box_above_the_data_table() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		userpagevalidation.validateUserSearchbox();
 	}
 
 	@Then("Admin should see two  records displayed on the data table")
-	public void admin_should_see_two_records_displayed_on_the_data_table() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void admin_two_records_displayed_data_table() {
+		userpagevalidation.validateRowCount();
 	}
 
 	@Then("Each row in the data table should have a checkbox")
-	public void each_row_in_the_data_table_should_have_a_checkbox() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void each_row_data_table_should_have_checkbox() {
+	  
+		userpagevalidation.validateAllcheckbox();
 	}
 
 	@Then("Each row in the data table should have a edit icon that is enabled")
 	public void each_row_in_the_data_table_should_have_a_edit_icon_that_is_enabled() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		userpagevalidation.validateEditIcon();
+
 	}
 
 	@Then("Each row in the data table should have a delete icon that is enabled")
-	public void each_row_in_the_data_table_should_have_a_delete_icon_that_is_enabled() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
+	public void each_row_data_table_delete_icon_enabled() {
+		userpagevalidation.validateDeleteIcon();
 
-	@Given("{string}")
-	public void string(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
 	}
 
 	@Given("Admin is on Manage User Page")
 	public void admin_is_on_manage_user_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	   
+		userpagevalidation.click_userbutton();
 	}
 
 	@When("Admin enters user name into search box.")
 	public void admin_enters_user_name_into_search_box() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		try {
+			userpagevalidation.validateSearchboxUsername();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Then("Admin should see user displayed with the entered name")
 	public void admin_should_see_user_displayed_with_the_entered_name() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
+		Log.info("searchbox showed the correct rowdata");
 	}
 
 	@When("Admin enters the keywords not present in the data table on the Search box")
 	public void admin_enters_the_keywords_not_present_in_the_data_table_on_the_search_box() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		userpagevalidation.validateInvalidSearchdata();
 	}
 
 	@Then("Admin should see zero entries on the data table")
 	public void admin_should_see_zero_entries_on_the_data_table() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Log.info("Showing 0 to 0 of 0 entries ");
 	}
 
 }

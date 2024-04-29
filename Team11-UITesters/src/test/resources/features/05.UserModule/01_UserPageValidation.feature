@@ -1,6 +1,5 @@
 Feature: User page validation
 
-
   Background: 
     Given Validate landing in User page and Admin is on dashboard page after Login
 
@@ -18,8 +17,7 @@ Feature: User page validation
   Scenario: Validate the text and pagination icon below the data table
     When Admin clicks "User" from navigation bar
     Then Admin should see the text as "Showing x to y of z entries" along with Pagination icon below the table for usermodule.
-    
-  
+
   @tag4
   Scenario: Validate data table headers in the User Page
     When Admin clicks "User" from navigation bar
@@ -72,18 +70,12 @@ Feature: User page validation
 
   @tag14
   Scenario: search user by name
-    Given "Admin is on dashboard page after Login and clicks User on the navigation bar"
-    And Admin is on Manage User Page
+    Given Admin is on Manage User Page
     When Admin enters user name into search box.
     Then Admin should see user displayed with the entered name
 
   @tag15
   Scenario: Validating the Search with unrelated keyword
-  
-    Given "Admin is on dashboard page after Login and clicks User on the navigation bar"
-    And Admin is on Manage User Page
+    Given Admin is on Manage User Page
     When Admin enters the keywords not present in the data table on the Search box
     Then Admin should see zero entries on the data table
- 
-   
-  

@@ -12,8 +12,8 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 				"rerun:target/failedrerun.txt", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
 		 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		monochrome=false,  //console output color
-		//tags = "@tag6 or @tag7 or @tag8",
-		//features = {"src/test/resources/features/05.UserModule/01_UserPageValidation.feature"},
+		//tags = "@tag14",
+		features = {"src/test/resources/features/05.UserModule/01_UserPageValidation.feature"},
 				//"src/test/resources/features/01.Login/1_SignIn.feature"}, //location of feature files
 		glue= "stepdefinitions") //location of step definition files
 
