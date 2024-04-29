@@ -64,7 +64,7 @@ public class ConfigFileReader {
 			throw new RuntimeException("implicitlyWait not specified in the Configuration.properties file.");
 	}
 
-	public String getApplicationUrl() 
+	public static String getApplicationUrl() 
 	{
 		String url = properties.getProperty("appUrl");
 		if (url != null)
@@ -198,6 +198,21 @@ public class ConfigFileReader {
 			return path;
 		else
 			throw new RuntimeException("screenshotPath not specified in the Configuration.properties file.");
+	}
+	
+	public String getLoginPageURL() {
+		String loginurl = properties.getProperty("loginPageUrl");
+		if (loginurl != null)
+			return loginurl;
+		else
+			throw new RuntimeException("loginPageUrl not specified in the Config.properties file");
+	}
+	public static String getInvalidUrl() {
+		String invalidurl = properties.getProperty("invalidUrl");
+		if (invalidurl != null)
+			return invalidurl;
+		else
+			throw new RuntimeException("invalidUrl not specified in the Config.properties file");
 	}
 
 	/*public String getDSAlgoUserName() {

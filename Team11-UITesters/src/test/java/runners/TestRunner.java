@@ -14,6 +14,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 		monochrome=false,  //console output color
 		//tags = "@LandingPage or @Register or @Signin or @Home or @DataStructures or @Array or @LinkedList or @Stack or @Tree" , //tags from feature file
 		//tags = "@LandingPage",
+		//tags = "@HomePage",
+		tags= "@LoginPageCredentials",
+		//tags= "@LoginPage",
+		//tags= "@Log1",				
 		features = {"src/test/resources/features"}, //location of feature files
 		glue= "stepdefinitions") //location of step definition files
 
