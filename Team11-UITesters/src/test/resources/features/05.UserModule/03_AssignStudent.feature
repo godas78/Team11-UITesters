@@ -27,7 +27,7 @@ Feature: Assign Student
   Scenario: Empty Form Submission
     Given Admin is in Assign Student details pop up page
     When Admin clicks "Save" button with entering any data
-    Then Admin gets a Error message alert
+    Then Admin gets a Error message alert for Assign student
 
   @tag6
   Scenario: Validate the Assign Student form page without giving Student Email id

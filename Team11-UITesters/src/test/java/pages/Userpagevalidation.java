@@ -287,7 +287,7 @@ public class Userpagevalidation {
       
 		Log.info("username is entered in the searchbox : "+name1);
 		try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

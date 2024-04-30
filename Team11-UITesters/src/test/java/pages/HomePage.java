@@ -63,7 +63,7 @@ public class HomePage {
 	
 	public void GoToHomePage()
 	{
-		driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getHomePageUrl());
+		driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
 		Log.info("User navigated to Home Page");
 	}
 
