@@ -34,7 +34,7 @@ public class UserpagevalidationSD {
 		
 	    if(!currenturl.equals(expectedurl) ) {
 	    	homePage.GoToHomePage();
-	    	homePage.ClickOnSignIn();
+	    	//homePage.ClickOnSignIn();
 	    	
 	    }
 	    else {

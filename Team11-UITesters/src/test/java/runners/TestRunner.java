@@ -14,7 +14,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 		monochrome=false,  //console output color
 		//tags = "@tag14",
 		features = {"src/test/resources/features/05.UserModule/01_UserPageValidation.feature"},
-				//"src/test/resources/features/01.Login/1_SignIn.feature"}, //location of feature files
 		glue= "stepdefinitions") //location of step definition files
 
 //public class TestRunner { }
