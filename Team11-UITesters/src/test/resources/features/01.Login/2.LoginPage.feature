@@ -12,7 +12,7 @@ Feature: Login Page Verification
     Then HTTP response ">=400" then the login link is broken 
 
   Scenario: Varify Header of the Login Page
-    Then Admin should see "Please Login to LMS application" in the Header
+    Then Admin should see "Please login to LMS application" in the Header
 
   Scenario: Verify Text spelling of the Login Page
     Then Admin should see correct spelling in all the feilds
@@ -21,7 +21,7 @@ Feature: Login Page Verification
     Then Admin should see two text feilds
 
   Scenario: Verify text on the first text feilds
-    Then Admin should "user" in the first text feild
+    Then Admin should "User" in the first text feild
 
   Scenario: Verify asterik next to user text
     Then Admin should see "*" symbol next to user text

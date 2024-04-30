@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import org.testng.Assert;
+
 import context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -50,7 +52,8 @@ TestContext testContext;
 
 	@Then("Admin should see {string} in the Header")
 	public void admin_should_see_in_the_header(String string) {
-	    homePage.headerlogin(string);
+		String actualmsg= homePage.headerlogin();
+	    Assert.assertEquals(string,actualmsg);
 	    
 	}
 
@@ -68,7 +71,8 @@ TestContext testContext;
 
 	@Then("Admin should {string} in the first text feild")
 	public void admin_should_in_the_first_text_feild(String string) {
-	    homePage.usertext(string);
+		String actualmsg= homePage.usertext();
+	    Assert.assertEquals(string,actualmsg);
 	    
 	}
 
@@ -80,7 +84,8 @@ TestContext testContext;
 
 	@Then("Admin should {string} in the second text feild")
 	public void admin_should_in_the_second_text_feild(String string) {
-	    homePage.passwordtext(string);
+		String actualmsg= homePage.passwordtext();
+	    Assert.assertEquals(string,actualmsg);
 	    
 	}
 

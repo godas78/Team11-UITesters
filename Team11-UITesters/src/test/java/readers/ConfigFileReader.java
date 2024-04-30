@@ -208,7 +208,7 @@ public class ConfigFileReader {
 			throw new RuntimeException("loginPageUrl not specified in the Config.properties file");
 	}
 	public static String getInvalidUrl() {
-		String invalidurl = properties.getProperty("invalidUrl");
+		String invalidurl = properties.getProperty("invalid_url");
 		if (invalidurl != null)
 			return invalidurl;
 		else
