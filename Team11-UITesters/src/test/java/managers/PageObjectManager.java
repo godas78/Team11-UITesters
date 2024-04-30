@@ -14,6 +14,10 @@ public class PageObjectManager<ProgramDelPage> {
 	private ProgramMdelPage programMdelPage;
 	private ProgramNavPage programnavPage;
 	private ProgramsortPage programsortpage;
+	private BatchPageValidation batchPageValidation;
+	private AddandEditBatchPage addBatchPage;
+	private DeleteBatchPage deleteBatchPage;
+
 		
 	public PageObjectManager(WebDriver driver) 
 	{
@@ -50,7 +54,21 @@ public class PageObjectManager<ProgramDelPage> {
 	{
 		return (programsortpage == null) ? programsortpage = new ProgramsortPage(driver) : programsortpage;
 	}
+	public BatchPageValidation getBatchPageValidation()
+	{
+		return (batchPageValidation == null) ? batchPageValidation = new BatchPageValidation(driver) : batchPageValidation;
+	}
 	
+	public AddandEditBatchPage getAddBatchPage()
+	{
+		return (addBatchPage == null) ? addBatchPage = new AddandEditBatchPage(driver) : addBatchPage;
+	}
+	
+	public DeleteBatchPage getDeleteBatchPage()
+	{
+		return (deleteBatchPage == null) ? deleteBatchPage = new DeleteBatchPage(driver) : deleteBatchPage;
+	}
+
 	
 }
 	
