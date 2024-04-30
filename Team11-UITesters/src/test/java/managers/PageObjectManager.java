@@ -4,78 +4,54 @@ import org.openqa.selenium.WebDriver;
 
 import pages.*;
 
-public class PageObjectManager {
+public class PageObjectManager<ProgramDelPage> {
 	
+	private static final String ProgramdelPage = null;
 	private WebDriver driver;
-	//private ArrayPage arrayPage;
-	//private DataStructuresPage dataStructuresPage;
 	private HomePage homePage;
-	//private LandingPage landingPage;
-	private SignInPage signinPage;
-	//private RegisterPage registerPage;
-	//private EditorPage editorPage;
-	//private PracticePage practicePage;
-	//private TreePage treePage;
-	//private StackPage stackPage;
-	//private LinkedListPage linkedListPage;
-	
+	private LoginPage loginPage;
+	private ProgramdelPage programdelpage;
+	private ProgramMdelPage programMdelPage;
+	private ProgramNavPage programnavPage;
+	private ProgramsortPage programsortpage;
+		
 	public PageObjectManager(WebDriver driver) 
 	{
 		this.driver = driver;
 	}
 	
-	/*public ArrayPage getArrayPage()
-	{
-		return (arrayPage == null) ? arrayPage = new ArrayPage(driver) : arrayPage;
-	}
 	
-	public DataStructuresPage getDataStructuresPage()
-	{
-		return (dataStructuresPage == null) ? dataStructuresPage = new DataStructuresPage(driver) : dataStructuresPage;
-	}*/
-
 	public HomePage getHomePage()
 	{
 		return (homePage == null) ? homePage = new HomePage(driver) : homePage;
 	}
 	
-	/*public LandingPage getLandingPage()
+	public ProgramdelPage getprogramdelPage()
 	{
-		return (landingPage == null) ? landingPage = new LandingPage(driver) : landingPage;
-	}*/
-	
-	/*public RegisterPage getRegistrationPage()
-	{
-		return (registerPage == null) ? registerPage = new RegisterPage(driver) : registerPage;
-	*/
-	
-	public SignInPage getSignInPage()
-	{
-		return (signinPage == null) ? signinPage = new SignInPage(driver) : signinPage;
+		return (programdelpage == null) ? programdelpage = new ProgramdelPage(driver) : programdelpage;
 	}
 	
-	/*public EditorPage getEditorPage()
+	public ProgramMdelPage getProgramMDelPage()
 	{
-		return (editorPage == null) ? editorPage = new EditorPage(driver) : editorPage;
+		return (programMdelPage == null) ? programMdelPage = new ProgramMdelPage(driver) : programMdelPage;
 	}
 	
-	public PracticePage getPracticePage()
+		
+	public LoginPage getLoginPage()
 	{
-		return (practicePage == null) ? practicePage = new PracticePage(driver) : practicePage;
+		return (loginPage == null) ? loginPage = new LoginPage(driver) : loginPage;
 	}
 	
-	public StackPage getStackPage()
+	public ProgramNavPage getProgramNavPage()
 	{
-		return (stackPage == null) ? stackPage = new StackPage(driver) : stackPage;
+		return (programnavPage == null) ? programnavPage = new ProgramNavPage(driver) : programnavPage;
+	}
+	public ProgramsortPage getProgramsortPage()
+	{
+		return (programsortpage == null) ? programsortpage = new ProgramsortPage(driver) : programsortpage;
 	}
 	
-	public TreePage getTreePage()
-	{
-		return (treePage == null) ? treePage = new TreePage(driver) : treePage;
-	}
 	
-	public LinkedListPage getLinkedListPage()
-	{
-		return (linkedListPage == null) ? linkedListPage = new LinkedListPage(driver) : linkedListPage;
-	}*/
 }
+	
+	
