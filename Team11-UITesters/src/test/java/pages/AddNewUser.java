@@ -75,10 +75,30 @@ public class AddNewUser {
 	
 	@FindBy(xpath="//*[@id='userVisaStatus']/div/span")
 	WebElement UservisastatusDropdown;
+	//USER ROLE DROPDWON OPTIONS
+	
+	@FindBy(xpath="//*[@id='roleId']/div/span[text()='R01']")
+	WebElement userR01;
+	
+	@FindBy(xpath="//*[@id='roleId']/div/span[text()='R02']")
+	WebElement userR02;
+	
+	@FindBy(xpath="//*[@id='roleId']/div/span[text()='R03']")
+	WebElement userR03;
+	
+	//user role status options
+	@FindBy(xpath="//*[@id='userRoleStatus']/div/span[text()='Active']")
+	WebElement ActiveURS;
+	
+	@FindBy(xpath="//*[@id='userRoleStatus']/div/span[text()='Inactive']")
+	WebElement InactiveURS;
+	
+	//user visa status
+	
+	@FindBy(xpath="//*[@id='userVisaStatus']/div/span[text()='Not-Specified']")
+	WebElement visaNotspec;
 	
 	
-	@FindBy(xpath="//span[@class='ng-tns-c101-16 p-dropdown-label p-inputtext ng-star-inserted'  and text()='R01']")
-	WebElement userrole1;
 // xpaths for all naming fields
 	@FindBy(xpath="//div/span/label/span[text()='First name']")
 	WebElement FnameText;
@@ -119,7 +139,16 @@ public class AddNewUser {
 	@FindBy(xpath="//div[@class='p-field']/label[text()='User Visa Status']")
 	WebElement userVisaStatusText;
 	
-
+// alert messages
+	
+	@FindBy(xpath="//*[@id='mat-error-0']")
+	WebElement firstnameAlert;
+	
+	@FindBy(xpath="//*[@id='mat-error-1']")
+	WebElement midnameAlert;
+	
+	@FindBy(xpath="//*[@id='mat-error-2']")
+	WebElement lastnameAlert;
 	
 	
 	public AddNewUser(WebDriver driver) {
@@ -182,5 +211,23 @@ public class AddNewUser {
 		Assert.assertTrue(UserRolestatusdropdown.isDisplayed(), "UserRolestatusdropdown is not displayed");
 		Assert.assertTrue(UservisastatusDropdown.isDisplayed(),"uservisa status dropdown is not displayed");
 		Log.info("All the dropdowns are displayed");
+	}
+	
+	public void validatecreateUSerdetails() {
+		firstname.sendKeys("Mike");
+		Midname.sendKeys("Daniel");
+		Lname.sendKeys("D");
+		loc.sendKeys("NYC");
+		phone.sendKeys("1234567891");
+		linked.sendKeys("https://www.linkedin.com/in/Mike/");
+		email.sendKeys("mike@gmail.com");
+		UG.sendKeys("CSE");
+		PG.sendKeys("MS");
+		timezone.sendKeys("EST");
+		comment.sendKeys("test");
+		userR02.click();
+		ActiveURS.click();
+		visaNotspec.click();
+		//submitbutton.click();
 	}
 }

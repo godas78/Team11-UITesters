@@ -59,14 +59,22 @@ public class AddNewUserSD {
 	}
 	@Given("Admin is on  User details pop up")
 	public void admin_is_on_user_details_pop_up() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		
+	    try {
+			adduser.AddNewUserBtn();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
 	}
 
 	@When("Admin enters mandatory fields in the form and clicks on submit button")
 	public void admin_enters_mandatory_fields_in_the_form_and_clicks_on_submit_button() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+
+		adduser.validatecreateUSerdetails();
+
+		
 	}
 
 	@Then("Admin gets message User added Successfully")
