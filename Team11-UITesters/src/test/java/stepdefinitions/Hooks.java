@@ -12,6 +12,7 @@ import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
 
 public class Hooks {
 
@@ -24,7 +25,7 @@ public class Hooks {
 		driver = testContext.getWebDriverManager().getDriver();
 	}
 
-	@BeforeMethod
+	@Before
 	public void BeforeSteps() 
 	{
 		

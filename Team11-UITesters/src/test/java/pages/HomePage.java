@@ -1,22 +1,61 @@
 package pages;
 
+import static org.testng.Assert.assertTrue;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
 import managers.FileReaderManager;
+import readers.ConfigFileReader;
+import readers.ExcelReader;
 import utilities.Log;
+
+
 
 public class HomePage {
 
 	WebDriver driver;
 	
-	@FindBy(xpath = "//a[@href='/login']") WebElement loginBtn;
-		
-	public HomePage(WebDriver driver)
+	String appUrl=ConfigFileReader.getApplicationUrl();
+	String invalid_url=ConfigFileReader.getInvalidUrl();
+	ExcelReader reader = new ExcelReader();
+	//Actions act = new Actions(driver);
+	String LinkURL = "";
+	HttpURLConnection huc = null;
+    int respCode = 200;
+	
+	@FindBy(id="username") WebElement username;
+	@FindBy(id="password") WebElement password;
+	@FindBy (xpath  = "//button[@id='login']") WebElement loginBtn;
+	 @FindBy (xpath  = "//[@id='login']/span[1]") WebElement logintext ;
+	 @FindBy (xpath  = "//button[@id='login']") WebElement loginpageloginbtn;
+	//img[@src='assets/img/LMS-logo.jpg']--logo
+//	 @FindBy (xpath  = "//a[text()='Customers']") WebElement learningtext ;	
+//	 @FindBy (xpath  = "//a[text()='Management']") WebElement managementtext ;
+//	 @FindBy (xpath  = "//a[text()='Systems']") WebElement systemtext;
+//	
+	 @FindBy (xpath  = "//icon") WebElement logoimage ;
+	 @FindBy (xpath  = "//div/mat-card/mat-card-content/form/p") WebElement loginpageheader;
+	 @FindBy (xpath  = "//*[@id='mat-error-0']") WebElement textcheckuser;
+	 @FindBy (xpath  = "//mat-form-field[2]/div/div[3]") WebElement textcheckpassword;
+	 @FindBy (xpath  = "//*[@id='mat-form-field-label-1']/span[2]") WebElement usernameasterick;
+	 @FindBy (xpath  = "//*[@id='mat-form-field-label-3']/span[2]") WebElement passwordasterick;	
+	
+	 public HomePage(WebDriver driver)
 	{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -34,112 +73,222 @@ public class HomePage {
 		Log.info("Verifies that user is on Home Page");
 		return null;
 	}
+
+	public void appUrl() {
+		driver.get(appUrl);
+		
+	}
+	public void invalid_url() {
+		driver.get(invalid_url);
 	
-	/*public void VerifyNotSignedIn()
-	{
-		Assert.assertEquals(loginBtn.getText(), FileReaderManager.getInstance().getConfigReader().getLoginBtnText());
-		Log.info("Verifies that user is not logged in");
+		
+	}
+	public void invalidURLstatus() {
+//		assertTrue(driver.getTitle().contains("404"));
+		
+		String title = driver.getTitle();
+        if (title.contains("404")) {
+            System.out.println("404 Page not found error received for invalid URL");
+        } else {
+            System.out.println("Invalid URL did not return a 404 error");
+        }
+	}
+	public void broken_links() {
+List<WebElement> links = driver.findElements(By.tagName("a"));
+        
+        Iterator<WebElement> it = links.iterator();
+        
+        while(it.hasNext()){
+            
+        	LinkURL = it.next().getAttribute("href");
+            
+            System.out.println(LinkURL);
+		
+		if (LinkURL==null || LinkURL.isEmpty()) {
+			Log.info("URL is either not configurerd for anchor tag or it is empty");
+		}
+		
+		try {
+            huc = (HttpURLConnection)(new URL(LinkURL).openConnection());
+            
+            huc.setRequestMethod("HEAD");
+            
+            huc.connect(); 
+            
+            respCode = huc.getResponseCode();
+            
+            if(respCode >= 400){
+                System.out.println(LinkURL+" is a broken link");
+            }
+            else{
+                System.out.println(LinkURL+" is a valid link");
+            }
+		} catch (MalformedURLException e) {
+          
+            e.printStackTrace();
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+        }
 	}
 	
-	public void VerifySignedIn()
-	{
-		Assert.assertEquals(signedInUser.getText().toLowerCase(), FileReaderManager.getInstance().getConfigReader().getDSAlgoUserName());
-		Log.info("Verifies that user is logged in");
-	}
-	
-	public void ClickOnSignIn()
-	{
-		loginBtn.click();
-		Log.info("User clicked on Sign in");
-	}
-	
-	public void ClickOnRegister() {
-		registerBtn.click();
-	}
-	
-	public void ClickOnDataStructures()
-	{
-		dataStructureBtn.click();
-		Log.info("User clicked on Get Started button for Data Structure");
-	}
-	
-	public void ClickOnArray()
-	{
-		arrayBtn.click();
-		Log.info("User clicked on Get Started button for Array");
-	}
-	
-	public void ClickOnStack()
-	{
-		stackBtn.click();
-		Log.info("User clicked on Get Started button for Stack");
-	}
-	
-	public void ClickOnLinkedList()
-	{
-		linkedListBtn.click();
-		Log.info("User clicked on Get Started button for Linked List");
-	}
-	
-	public void ClickOnTree()
-	{
-		treeBtn.click();
-		Log.info("User clicked on Get Started button for Tree");
-	}
-	
-	public void ClickOnGraph()
-	{
-		graphBtn.click();
-		Log.info("User clicked on Get Started button for Graph");
-	}
-	
-	public void ClickOnQueue()
-	{
-		queueBtn.click();
-		Log.info("User clicked on Get Started button for Queue");
-	}
-	
-	public void VerifyLoginErrorMsg()
-	{
-		Assert.assertEquals(alertMsg.getText(), FileReaderManager.getInstance().getConfigReader().getInvalidLoginMsg());
-		Log.info("Verified the message that user is not logged in");
-	}
-	
-	public void VerifyLoginSuccessMsg()
-	{
-		Assert.assertEquals(alertMsg.getText(), FileReaderManager.getInstance().getConfigReader().getValidLoginMsg());
-		Log.info("Verified the success message for log in");
-	}
-	
-	public void ClickOnSignOut()
-	{
-		signOutBtn.click();
-		Log.info("User clicked on Sign out");
-	}
-	
-	public void VerifyLogoutSuccessMsg()
-	{
-		Assert.assertEquals(alertMsg.getText(), FileReaderManager.getInstance().getConfigReader().getLogoutSuccessMsg());
-		Log.info("Verified the success message for log out");
-	}
-	
-	public void ClickOnDataStructuresDropdown() {
-		dataStructuresDropdown.click();
-	}
-	
-	public void ClickonDataStructureLinkname(String linkname) {
-		WebElement element = driver.findElement(By.xpath("//a[@href='" + linkname + "']"));
-		element.click();
+		
 	}
 
-	public void ClickonDataStructureDropDown(String linkname) {
-		WebElement element = driver.findElement(By.xpath("//a[@href='" + linkname + "']"));
-		element.click();
+	public void spellchecker() {
+		// TODO Auto-generated method stub
+		
 	}
-	
-	public void VerifySuccessfulRegistration(String userName) {
-		String expectedMsg =  FileReaderManager.getInstance().getConfigReader().getSuccessfulRegisterationMsg() + userName;
-		Assert.assertEquals(alertMsg.getText(), expectedMsg);
-		Log.info("Verified registration success message for user " + userName);
-	}*/
+
+	public void correctlogo(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void logoaligned() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void loginbtncheck() {
+		if(loginBtn.isDisplayed()) 
+		{
+		    System.out.println("Login button is Displayed");
+		}
+		else
+		    System.out.println("Show more is not there");
+	}
+		
+
+	public void logincheck() {
+		loginBtn.click();
+	}
+	public void getallText() {
+		driver.getPageSource();
+	}
+	public String headerlogin() {
+		return loginpageheader.getText();
+	}
+
+	public void textcheck(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String usertext() {
+		return username.getText();
+	}
+//		String expectedmsg = string;
+//		String actualmsg = username.getText();
+//		Assert.assertEquals(expectedmsg,actualmsg);
+//		 System.out.println(actualmsg);
+//		
+//	}
+//	public void usertext() {
+//		username.getText();
+//	}
+
+	public String passwordtext() {
+		return password.getText();
+//		String expectedmsg = string;
+//		String actualmsg = password.getText();
+//		Assert.assertEquals(expectedmsg,actualmsg);
+//		 System.out.println(actualmsg);
+		
+	}
+	public void astrikuser(String string) {
+		String expectedmsg = string;
+  		String actualmsg = usernameasterick.getText();
+  		Assert.assertEquals(expectedmsg,actualmsg);
+  		 System.out.println(actualmsg);
+		
+	}
+	public void astrikpassword(String string) {
+		 String expectedmsg = string;
+	  		String actualmsg = passwordasterick.getText();
+	  		Assert.assertEquals(expectedmsg,actualmsg);
+	  		 System.out.println(actualmsg);
+		
+	}
+
+	public void centrepage() {
+		Dimension dimuser = username.getSize();
+        Dimension dimpassword = password.getSize();
+       int heightuser= dimuser.height;
+       int widthuser=dimuser.width;
+       int heightpassword= dimpassword.height;
+       int widthpassword=dimpassword.width;
+       
+       if (heightuser>30 & heightuser<60 & widthuser>400 & widthuser<600 & heightpassword >30 &heightpassword<60 
+      		 & widthpassword>400 & widthpassword<600 ) {
+      	Log.info("Both text boxes are in page center");
+       }  
+		
+	}
+
+	public void centreloginbtn() {
+		Dimension dimuser = loginBtn.getSize();
+        int heightuser= dimuser.height;
+        int widthuser=dimuser.width;
+        
+        if (heightuser>30 & heightuser<60 & widthuser>400 & widthuser<600  ) {
+       	Log.info("Login button in the centre");
+        }  
+	}
+
+	public void usercolor() {
+		String color = username.getCssValue("color");
+  	  String hex = Color.fromString(color).asHex();
+  	  
+  	  if (hex=="#808080" ) {
+  		  Log.info("User String is in grey color");
+  	  }
+  	  else {
+  		  Log.info("User String is not in grey color");
+  	  }
+		
+	}
+
+	public void passwordcolor() {
+		String color = password.getCssValue("color");
+  	  String hex = Color.fromString(color).asHex();
+  	  
+  	  if (hex=="#808080" ) {
+  		  Log.info("User String is in grey color");
+  	  }
+  	  else {
+  		  Log.info("User String is not in grey color");
+  	  }
+		
+	}
+
+	public void validuser(String user) {
+		username.sendKeys(user);
+	}
+
+	public void validpassword(String passwrd) {
+		password.sendKeys(passwrd);
+		
+	}
+	public void loginpageloginbtn() {
+  	  loginpageloginbtn.click();
+    }
+
+	public void invalidlogin(String user, String passwrd) {
+		username.sendKeys(user);
+  	  password.sendKeys(passwrd);
+  	  loginBtn.click();
+		
+	}
+
+	public void keyboardaction() {
+		//act.moveToElement(loginpageloginbtn).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
+		
+	}
+
+	public void mouseaction() {
+	//	act.doubleClick(loginpageloginbtn).perform();
+		
+	}
+
 }
