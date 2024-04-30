@@ -70,12 +70,12 @@ Feature: User page validation
 
   @tag14
   Scenario: search user by name
-    Given Admin is on Manage User Page
+    Given Admin clicks "User" from navigation bar 
     When Admin enters user name into search box.
     Then Admin should see user displayed with the entered name
 
   @tag15
   Scenario: Validating the Search with unrelated keyword
-    Given Admin is on Manage User Page
+    Given Admin clicks "User" from navigation bar
     When Admin enters the keywords not present in the data table on the Search box
     Then Admin should see zero entries on the data table

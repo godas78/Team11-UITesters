@@ -1,38 +1,61 @@
 package stepdefinitions;
 
+import org.openqa.selenium.WebDriver;
+
+import context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.AddNewUser;
+import pages.HomePage;
+import pages.Userpagevalidation;
 
 public class AddNewUserSD {
-	@Given("Admin is on dashboard page after Login and clicks User on the navigation bar and Admin is on Manage User Page")
-	public void admin_is_on_dashboard_page_after_login_and_clicks_user_on_the_navigation_bar_and_admin_is_on_manage_user_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	
+	TestContext testContext;
+	WebDriver driver;
+	Userpagevalidation userpagevalidation;
+	HomePage homePage;
+	AddNewUser adduser;
+
+
+	public AddNewUserSD(TestContext context) {
+		testContext = context;
+		driver = testContext.getWebDriverManager().getDriver();
+		homePage = testContext.getPageObjectManager().getHomePage();
+		userpagevalidation = testContext.getPageObjectManager().getUserpagevalidation();
+		adduser = testContext.getPageObjectManager().getAddUser();
+
 	}
+	
 
 	@When("Admin clicks {string} button")
 	public void admin_clicks_button(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		try {
+			adduser.AddNewUserBtn();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Then("Admin should see pop up open for user details with First Name,Middle name, Last Name, Location,phone, email, linkedin url, User Role, Role status,visa status,Undergraduate, postgraduate,time zone ,user comments and user fields along with Cancel ,Submit and close buttons")
 	public void admin_should_see_pop_up_open_for_user_details_with_first_name_middle_name_last_name_location_phone_email_linkedin_url_user_role_role_status_visa_status_undergraduate_postgraduate_time_zone_user_comments_and_user_fields_along_with_cancel_submit_and_close_buttons() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
+		adduser.validateAddUserPopup();
 	}
 
 	@Then("Admin should see text boxes for the fields First Name, Middle name,Last Name, Location, phone,email,linkedin url,Undergraduate,postgraduate,time zone ,user comments")
 	public void admin_should_see_text_boxes_for_the_fields_first_name_middle_name_last_name_location_phone_email_linkedin_url_undergraduate_postgraduate_time_zone_user_comments() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+
+     adduser.validateAddUserText();
 	}
 
 	@Then("Admin should see dropdowns for the fields User Role,Role status, visa status on user details pop up")
 	public void admin_should_see_dropdowns_for_the_fields_user_role_role_status_visa_status_on_user_details_pop_up() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+
+     adduser.validateUserDropdowns();
 	}
 	@Given("Admin is on  User details pop up")
 	public void admin_is_on_user_details_pop_up() {

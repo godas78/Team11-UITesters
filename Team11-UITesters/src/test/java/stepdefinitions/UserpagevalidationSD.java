@@ -18,9 +18,6 @@ public class UserpagevalidationSD {
 	Userpagevalidation userpagevalidation;
 	HomePage homePage;
 
-	static String username;
-	static String password;
-
 	public UserpagevalidationSD(TestContext context) {
 		testContext = context;
 		driver = testContext.getWebDriverManager().getDriver();
@@ -29,7 +26,7 @@ public class UserpagevalidationSD {
 
 	}
 	@Given("Validate landing in User page and Admin is on dashboard page after Login")
-	public void validate_landing_in_user_page() {
+	public void validatelandinguserpage() {
 		String currenturl =driver.getCurrentUrl();
 		String expectedurl= FileReaderManager.getInstance().getConfigReader().getApplicationUrl();
 		
@@ -110,11 +107,6 @@ public class UserpagevalidationSD {
 
 	}
 
-	@Given("Admin is on Manage User Page")
-	public void admin_is_on_manage_user_page() {
-	   
-		userpagevalidation.click_userbutton();
-	}
 
 	@When("Admin enters user name into search box.")
 	public void admin_enters_user_name_into_search_box() {

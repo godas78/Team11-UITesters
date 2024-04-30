@@ -11,6 +11,8 @@ public class PageObjectManager {
 	private HomePage homePage;
 	
 	private Userpagevalidation userpagevalidation;
+	
+	private AddNewUser adduser;
 
 	
 	
@@ -31,6 +33,9 @@ public class PageObjectManager {
 		return(userpagevalidation == null) ? userpagevalidation = new Userpagevalidation(driver) : userpagevalidation;
 	}
 	
-	
+	public AddNewUser getAddUser()
+	{
+		return(adduser == null) ? adduser = new AddNewUser(driver) : adduser;
+	}
 	
 }
