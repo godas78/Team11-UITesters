@@ -4,12 +4,12 @@ Feature: Login Page Verification
   Background: Admin is in login page after clicking login button in Home Page
     Given Admin is on login Page
 #@Log1
-  Scenario Outline: Validate login with valid credentials
-    When Admin enter valid credentials from excel sheet "<Sheetname>" and <RowNumber>
-    Then Admin should land on dashboard page
-    Examples: 
-      | Sheetname | RowNumber |
-      | Login    |         0 |
+  #Scenario Outline: Validate login with valid credentials
+    #When Admin enter valid credentials from excel sheet "<Sheetname>" and <RowNumber>
+    #Then Admin should land on dashboard page
+    #Examples: 
+      #| Sheetname | RowNumber |
+      #| Login    |         0 |
 
   Scenario Outline: Validate login with invalid credentials
     When Admin enter invalid credentials from excel sheet "<Sheetname>" and <RowNumber>
@@ -61,6 +61,12 @@ Feature: Login Page Verification
   Scenario Outline: verify login button action through mouse
     When Admin enter valid credentials and click through mouse from excel sheet "<Sheetname>" and <RowNumber>
     Then Admin land on dashboard page
+    Examples: 
+      | Sheetname | RowNumber |
+      | Login    |         0 |
+ Scenario Outline: Validate login with valid credentials
+    When Admin enter valid credentials from excel sheet "<Sheetname>" and <RowNumber>
+    Then Admin should land on dashboard page
     Examples: 
       | Sheetname | RowNumber |
       | Login    |         0 |

@@ -69,12 +69,25 @@ TestContext testContext;
 	    
 	}
 
-	@Then("Admin should {string} in the first text feild")
-	public void admin_should_in_the_first_text_feild(String string) {
+//	@Then("Admin should {string} in the first text feild")
+//	public void admin_should_in_the_first_text_feild(String string) {
+//		String actualmsg= homePage.usertext();
+//	    Assert.assertEquals(string,actualmsg);
+//	    
+//	}
+	@Then("Admin should User in the first text feild")
+	public void admin_should_user_in_the_first_text_feild() {
 		String actualmsg= homePage.usertext();
-	    Assert.assertEquals(string,actualmsg);
-	    
+	    Assert.assertEquals("User",actualmsg);
 	}
+
+	@Then("Admin should Password in the second text feild")
+	public void admin_should_password_in_the_second_text_feild() {
+		String actualmsg= homePage.passwordtext();
+	    Assert.assertEquals("Password",actualmsg);
+	}
+
+
 
 	@Then("Admin should see {string} symbol next to user text")
 	public void admin_should_see_symbol_next_to_user_text(String string) {
@@ -82,12 +95,12 @@ TestContext testContext;
 	    
 	}
 
-	@Then("Admin should {string} in the second text feild")
-	public void admin_should_in_the_second_text_feild(String string) {
-		String actualmsg= homePage.passwordtext();
-	    Assert.assertEquals(string,actualmsg);
-	    
-	}
+//	@Then("Admin should {string} in the second text feild")
+//	public void admin_should_in_the_second_text_feild(String string) {
+//		String actualmsg= homePage.passwordtext();
+//	    Assert.assertEquals(string,actualmsg);
+//	    
+//	}
 
 	@Then("Admin should see {string} symbol next to password text")
 	public void admin_should_see_symbol_next_to_password_text(String string) {

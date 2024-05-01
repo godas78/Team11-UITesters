@@ -24,6 +24,8 @@ import readers.ConfigFileReader;
 import readers.ExcelReader;
 import utilities.Log;
 
+import utilities.Screenshots;
+
 
 
 public class HomePage {
@@ -44,14 +46,8 @@ public class HomePage {
 	 @FindBy (xpath  = "//[@id='login']/span[1]") WebElement logintext ;
 	 @FindBy (xpath  = "//button[@id='login']") WebElement loginpageloginbtn;
 	//img[@src='assets/img/LMS-logo.jpg']--logo
-//	 @FindBy (xpath  = "//a[text()='Customers']") WebElement learningtext ;	
-//	 @FindBy (xpath  = "//a[text()='Management']") WebElement managementtext ;
-//	 @FindBy (xpath  = "//a[text()='Systems']") WebElement systemtext;
-//	
 	 @FindBy (xpath  = "//icon") WebElement logoimage ;
 	 @FindBy (xpath  = "//div/mat-card/mat-card-content/form/p") WebElement loginpageheader;
-	 @FindBy (xpath  = "//*[@id='mat-error-0']") WebElement textcheckuser;
-	 @FindBy (xpath  = "//mat-form-field[2]/div/div[3]") WebElement textcheckpassword;
 	 @FindBy (xpath  = "//*[@id='mat-form-field-label-1']/span[2]") WebElement usernameasterick;
 	 @FindBy (xpath  = "//*[@id='mat-form-field-label-3']/span[2]") WebElement passwordasterick;	
 	
@@ -144,6 +140,7 @@ List<WebElement> links = driver.findElements(By.tagName("a"));
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 	public void logoaligned() {
 		// TODO Auto-generated method stub
@@ -287,7 +284,7 @@ List<WebElement> links = driver.findElements(By.tagName("a"));
 	}
 
 	public void mouseaction() {
-	//	act.doubleClick(loginpageloginbtn).perform();
+		//act.doubleClick(loginpageloginbtn).perform();
 		
 	}
 

@@ -21,13 +21,13 @@ Feature: Login Page Verification
     Then Admin should see two text feilds
 
   Scenario: Verify text on the first text feilds
-    Then Admin should "User" in the first text feild
+    Then Admin should User in the first text feild
 
   Scenario: Verify asterik next to user text
     Then Admin should see "*" symbol next to user text
 
   Scenario: Verify text on the second text feilds
-    Then Admin should "Password" in the second text feild
+    Then Admin should Password in the second text feild
 
   Scenario: Verify asterik next to password text
     Then Admin should see "*" symbol next to password text
