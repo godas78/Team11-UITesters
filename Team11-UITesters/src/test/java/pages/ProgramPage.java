@@ -45,8 +45,15 @@ public class ProgramPage {
     @FindBy(id = "saveProgram") public WebElement saveButton;
     @FindBy(xpath = "//span[@class='p-dialog-header-close-icon ng-tns-c132-3 pi pi-times']") public WebElement xButon;
     @FindBy(xpath = "//div[@class='p-radiobutton-box']") public List<WebElement> radioButtons;
+    @FindBy(xpath = "//div[@class='p-radiobutton-box'][1]") public WebElement active;
+    @FindBy(xpath = "//div[@class='p-radiobutton-box']") public WebElement inactive;
     @FindBy(xpath = "//small[@class='p-invalid ng-star-inserted']") public List<WebElement> errorMessage;
-    
+    @FindBy(xpath="//*[text()='Successful']") public WebElement successprogramMessage;
+    @FindBy( xpath = "//span[@class='p-button-icon pi pi-pencil'][1]") public WebElement editButton;
+    @FindBy(xpath = "//span[text()='Save']") public WebElement editSave;
+    @FindBy( xpath  ="//button[@class='p-toast-icon-close p-link ng-tns-c90-12 p-ripple ng-star-inserted']") public WebElement xSuccessButton;
+    @FindBy(xpath  ="//span[text()='Cancel']") public WebElement cancelButton;
+   
     public ProgramPage (WebDriver driver) {
 	  this.driver=driver;
 	  PageFactory.initElements(driver, this);
@@ -88,7 +95,7 @@ public class ProgramPage {
   
   public String getFooterText() {
 		String footerText= FooterText.getText();
-			 System.out.println("programFooterText "+footerText);
+		System.out.println("programFooterText "+footerText);
 			 return footerText;
 		  }
   
@@ -105,8 +112,14 @@ public class ProgramPage {
 		  }
   
    public boolean validateDisplayelement(WebElement element) {
-	   return element.isDisplayed();
+	   if(element.isDisplayed()) {
+	   System.out.println(element.getText());}
+	   else {
+		   System.out.println("element not display");
+		   return false;
+	   }
 	   
+	   return true;
    }
    
 
@@ -152,28 +165,32 @@ public class ProgramPage {
 						 
 				return errorMessage;
 	}
-	   public void enterProgramName() {
-		   inputName.sendKeys("testd");
+	   public void enterProgramName(String s) {
+		   inputName.sendKeys(s);
 		    }
-	   public void enterProgramDescription() {
-		   inputDescription.sendKeys("te");
+	   public void enterProgramDescription( ) {
+		   inputDescription.sendKeys("tr");
 		    }
 	   
+	   public void enterProgramDescription(String prograName, String programDescription ) {
+		   inputDescription.sendKeys(prograName);
+		   inputName.sendKeys(programDescription);
+		    }
 	   
-   
-   public String getSearchtext() {
+    public String getSearchtext() {
 		 return  Search.getAttribute("placeholder");
 		 }
    
    public boolean popUpDisplayed(WebElement element) {
 	   if (element.isDisplayed())
 	   { System.out.println("program page"+element.getText());
-		return true;   
+		  
 	   }
 	   else { 
 		   System.out.println("pop up not opend");
 		  return false;
 	   }
+	   return true; 
    }
 	   public boolean validateDeleteIconsEnabled() {
 	        boolean allDeleteIconsEnabled = true;
