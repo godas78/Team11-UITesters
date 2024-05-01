@@ -140,117 +140,81 @@ public class ConfigFileReader {
 			throw new RuntimeException("expectedTextHeading is not specified in the Configuration.properties file.");
 	}
 
-	/*
-	public String getValidLoginMsg() {
-		String msg = properties.getProperty("validLoginMsg");
-		if (msg != null)
-			return msg;
-		else
-			throw new RuntimeException("validLoginMsg not specified in the Configuration.properties file.");
-	}
-
-	public String getInvalidLoginMsg() {
-		String msg = properties.getProperty("invalidLoginMsg");
-		if (msg != null)
-			return msg;
-		else
-			throw new RuntimeException("invalidLoginMsg not specified in the Configuration.properties file.");
-	}
-
-
-	public String getLogoutSuccessMsg() {
-		String msg = properties.getProperty("logOutSuccessMsg");
-		if (msg != null)
-			return msg;
-		else
-			throw new RuntimeException("logOutSuccessMsg not specified in the Configuration.properties file.");
-	}
-
-	public String getLoginBtnText() {
-		String text = properties.getProperty("loginBtnText");
-		if (text != null)
-			return text;
-		else
-			throw new RuntimeException("loginBtnText not specified in the Configuration.properties file.");
-	}
-
-	public String getTreeHeading() {
-		String heading = properties.getProperty("treeHeading");
-		if (heading != null)
-			return heading;
-		else
-			throw new RuntimeException("treeHeading not specified in the Configuration.properties file.");
-	}
-	
-	public String getArrayHeading() {
-		String heading = properties.getProperty("arrayHeading");
-		if (heading != null)
-			return heading;
-		else
-			throw new RuntimeException("arrayHeading not specified in the Configuration.properties file.");
-	}
-	
-	public String getDataStructureHeading() {
-		String heading = properties.getProperty("dataStructureHeading");
-		if (heading != null)
-			return heading;
-		else
-			throw new RuntimeException("dataStructureHeading not specified in the Configuration.properties file.");
-	}
-
-	public String geturl(String pagename) {
-		String heading = properties.getProperty(pagename);
-		if (heading != null)
-			return heading;
-		else
-			throw new RuntimeException(pagename + " url not specified in the Configuration.properties file.");
-	}
-
-	public String tryURL(String pagename) {
-		String url = properties.getProperty(pagename);
+	public String getexpectedErrorMSGFname() {
+		String url = properties.getProperty("FnameErr");
 		if (url != null)
 			return url;
 		else
-			throw new RuntimeException(pagename + "url not specified in the Configuration.properties file.");
+			throw new RuntimeException("Firstname erroMSG is not specified in the Configuration.properties file.");
 	}
-	
-	public String getSuccessfulRegisterationMsg() {
-		String msg = properties.getProperty("successfulRegisterationMsg");
-		if (msg != null)
-			return msg;
+	public String getexpectedErrorMSGMidname() {
+		String url = properties.getProperty("MnameErr");
+		if (url != null)
+			return url;
 		else
-			throw new RuntimeException("successfulRegisterationMsg not specified in the Configuration.properties file.");
+			throw new RuntimeException("Middle erroMSG is not specified in the Configuration.properties file.");
 	}
-	
-	public String getEmptyFieldMsg() {
-		String msg = properties.getProperty("emptyFieldMsg");
-		if (msg != null)
-			return msg;
+	public String getexpectedErrorMSGLastname() {
+		String url = properties.getProperty("LnameErr");
+		if (url != null)
+			return url;
 		else
-			throw new RuntimeException("emptyFieldMsg not specified in the Configuration.properties file.");
+			throw new RuntimeException("last name erroMSG is not specified in the Configuration.properties file.");
 	}
-
-	public String getInvalidCredsMsg() {
-		String msg = properties.getProperty("invalidCredsMsg");
-		if (msg != null)
-			return msg;
+	public String getexpectedErrorMSGLocation() {
+		String url = properties.getProperty("LocErr");
+		if (url != null)
+			return url;
 		else
-			throw new RuntimeException("invalidCredsMsg not specified in the Configuration.properties file.");
+			throw new RuntimeException("location erroMSG is not specified in the Configuration.properties file.");
 	}
-
-	public String getInvalidUserName() {
-		String username = properties.getProperty("invalidUserName");
-		if (username != null)
-			return username;
+	public String getexpectedErrorMSGPhone() {
+		String url = properties.getProperty("PhoneErr");
+		if (url != null)
+			return url;
 		else
-			throw new RuntimeException("invalidUserName not specified in the Configuration.properties file.");
+			throw new RuntimeException("phone number erroMSG is not specified in the Configuration.properties file.");
 	}
-	
-	public String getInvalidPassword() {
-		String password = properties.getProperty("invalidPassword");
-		if (password != null)
-			return password;
+	public String getexpectedErrorMSGLinkedin() {
+		String url = properties.getProperty("LinkedErr");
+		if (url != null)
+			return url;
 		else
-			throw new RuntimeException("invalidPassword not specified in the Configuration.properties file.");
-	}*/
+			throw new RuntimeException("Linked in URL erroMSG is not specified in the Configuration.properties file.");
+	}
+	public String getexpectedErrorMSGEmail() {
+		String url = properties.getProperty("EmailErr");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("Email id erroMSG is not specified in the Configuration.properties file.");
+	}
+	public String getexpectedErrorMSGUG() {
+		String url = properties.getProperty("UGErr");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("UG erroMSG is not specified in the Configuration.properties file.");
+	}
+	public String getexpectedErrorMSGPG() {
+		String url = properties.getProperty("PGErr");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("PG erroMSG is not specified in the Configuration.properties file.");
+	}
+	public String getexpectedErrorMSGTimeZone() {
+		String url = properties.getProperty("timezoneErr");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("Timezone erroMSG is not specified in the Configuration.properties file.");
+	}
+	public String getexpectedErrorMSGComment() {
+		String url = properties.getProperty("commentsErr");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("comments erroMSG is not specified in the Configuration.properties file.");
+	}
 }
