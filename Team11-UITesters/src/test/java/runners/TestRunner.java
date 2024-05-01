@@ -8,13 +8,12 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 //@RunWith(Cucumber.class)
 
 @CucumberOptions(
-		plugin = {"pretty", "html:target/index.html",
-				//"junit:target/Destination.xml",
-				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, //reporting purpose
+		plugin = {"pretty", "html:target/cucumberreport.html", "html:target/ExtentReports/UserAPI.html",
+				"rerun:target/failedrerun.txt", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+		 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		monochrome=false,  //console output color
-		//tags = "@LandingPage or @Register or @Signin or @Home or @DataStructures or @Array or @LinkedList or @Stack or @Tree" , //tags from feature file
-		//tags = "@LandingPage",
-		features = {"src/test/resources/features"}, //location of feature files
+		//tags = "@tag14",
+		features = {"src/test/resources/features/05.UserModule/01_UserPageValidation.feature"},
 		glue= "stepdefinitions") //location of step definition files
 
 //public class TestRunner { }
