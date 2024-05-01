@@ -21,12 +21,7 @@ public class AddBatchSD {
 	boolean flag;
 	ExcelReader reader = new ExcelReader();
 	
-	public AddBatchSD(TestContext context)
-	{
-		testContext = context;
-		addBatchPage = testContext.getPageObjectManager().getAddBatchPage();
 		
-	}	
 	
 	
 	@Given("A new pop up with Batch details appears for add batch")

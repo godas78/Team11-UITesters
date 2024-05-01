@@ -11,7 +11,7 @@ import context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.LoginPage;
+
 import pages.ProgramPagiPage;
 import pages.ProgramsortPage;
 import utilities.Helper;
@@ -25,7 +25,7 @@ public class ProgrampagiSD {
 	public ProgrampagiSD(TestContext context)
 	{
 		testContext = context;
-		programpagiPage = testContext.getPageObjectManager().getProgramPagiPage();
+	//	programpagiPage = testContext.getPageObjectManager().getProgramPagiPage();
 	}
 	@When("user clicks Next page link on the program table")
 	public void user_clicks_next_page_link_on_the_program_table() {

@@ -66,9 +66,7 @@ public class PageObjectManager<ProgramDelPage> {
 		return (batchPageValidation == null) ? batchPageValidation = new BatchPageValidation(driver) : batchPageValidation;
 	}
 	
-	{
-		return (addBatchPage == null) ? addBatchPage = new AddandEditBatchPage(driver) : addBatchPage;
-	}
+	
 
 	public DeleteBatchPage getDeleteBatchPage()
 	{

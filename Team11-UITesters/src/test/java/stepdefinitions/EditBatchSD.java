@@ -17,13 +17,13 @@ public class EditBatchSD {
 	AddandEditBatchPage addBatchPage;
 	ExcelReader reader = new ExcelReader();
 	String actualerror;
-	
+	/*
 	public EditBatchSD(TestContext context)
 	{
 		testContext = context;
 		addBatchPage = testContext.getPageObjectManager().getAddBatchPage();
 		
-	}	
+	}	*/
 	
 //	TestContext testContext;
 //	EditBatchPage editBatchPage;

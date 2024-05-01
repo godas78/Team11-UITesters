@@ -12,7 +12,7 @@ import context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.LoginPage;
+
 import pages.ProgramsortPage;
 import utilities.Helper;
 import utilities.Log;
@@ -25,7 +25,7 @@ public class ProgramsortSD {
 	public ProgramsortSD(TestContext context)
 	{
 		testContext = context;
-		programsortpage = testContext.getPageObjectManager().getProgramsortPage();
+		//programsortpage = testContext.getPageObjectManager().getProgramsortPage();
 	}	
 
 	@Given("user is Manage Program page")
