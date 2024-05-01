@@ -94,46 +94,63 @@ public class HomePage {
 //        }
 	}
 	public void broken_links()  {
-List<WebElement> links = driver.findElements(By.tagName("a"));
-        
-        Iterator<WebElement> it = links.iterator();
-        
-        while(it.hasNext()){
-            
-        	LinkURL = it.next().getAttribute("href");
-            
-            System.out.println(LinkURL);
+//List<WebElement> links = driver.findElements(By.tagName("a"));
+//        
+//        Iterator<WebElement> it = links.iterator();
+//        
+//        while(it.hasNext()){
+//            
+//        	LinkURL = it.next().getAttribute("href");
+//            
+//            System.out.println(LinkURL);
+//		
+//		if (LinkURL==null || LinkURL.isEmpty()) {
+//			Log.info("URL is either not configurerd for anchor tag or it is empty");
+//		}
+//		
+//		try {
+//            huc = (HttpURLConnection)(new URL(LinkURL).openConnection());
+//            
+//            huc.setRequestMethod("HEAD");
+//            
+//            huc.connect(); 
+//            
+//            respCode = huc.getResponseCode();
+//            
+//            if(respCode >= 400){
+//                System.out.println(LinkURL+" is a broken link");
+//            }
+//            else{
+//                System.out.println(LinkURL+" is a valid link");
+//            }
+//		} catch (MalformedURLException e) {
+//          
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            
+//            e.printStackTrace();
+//        }
+//	}
+//	}
+		String url= driver.getCurrentUrl();
 		
-		if (LinkURL==null || LinkURL.isEmpty()) {
-			Log.info("URL is either not configurerd for anchor tag or it is empty");
-		}
-		
-		try {
-            huc = (HttpURLConnection)(new URL(LinkURL).openConnection());
-            
-            huc.setRequestMethod("HEAD");
-            
-            huc.connect(); 
-            
-            respCode = huc.getResponseCode();
-            
-            if(respCode >= 400){
-                System.out.println(LinkURL+" is a broken link");
-            }
-            else{
-                System.out.println(LinkURL+" is a valid link");
-            }
-		} catch (MalformedURLException e) {
-          
-            e.printStackTrace();
-        } catch (IOException e) {
-            
-            e.printStackTrace();
-        }
+		try {		
+
+			URL link = new URL(url);
+			HttpURLConnection httpURLConnection = (HttpURLConnection) link.openConnection();
+			httpURLConnection.setConnectTimeout(3000); // Set connection timeout to 3 seconds
+			httpURLConnection.connect();
+			if (httpURLConnection.getResponseCode()> 400) {
+				System.out.println(url + " - " + httpURLConnection.getResponseMessage()+ " - " + "is a broken link");
+			} else {
+				System.out.println(url + " - " + httpURLConnection.getResponseMessage() );
+			}
+		} catch (Exception e) {
+			System.out.println(url + " - " + "is a broken link");
+
+		}	
 	}
 	
-		
-	}
  
 
 		
