@@ -7,6 +7,7 @@ import pages.*;
 public class PageObjectManager<ProgramDelPage> {
 
 	private static final String ProgramdelPage = null;
+
 	private WebDriver driver;
 	private HomePage homePage;
 	private Userpagevalidation userpagevalidation;
@@ -16,9 +17,15 @@ public class PageObjectManager<ProgramDelPage> {
 	private ProgramdelPage programdelpage;
 	private ProgramMdelPage programMdelPage;
 	private ProgramNavPage programnavPage;
+
 	//private ProgramsortPage programsortpage;
+	private BatchPageValidation batchPageValidation;
+	private AddandEditBatchPage addBatchPage;
+	private DeleteBatchPage deleteBatchPage;
+
 
 	public PageObjectManager(WebDriver driver) {
+
 		this.driver = driver;
 	}
 
@@ -54,5 +61,16 @@ public class PageObjectManager<ProgramDelPage> {
 	public ProgramsortPage getProgramsortPage() {
 		return (programsortpage == null) ? programsortpage = new ProgramsortPage(driver) : programsortpage;
 	}*/
+	public BatchPageValidation getBatchPageValidation()
+	{
+		return (batchPageValidation == null) ? batchPageValidation = new BatchPageValidation(driver) : batchPageValidation;
+	}
+	
+	
+
+	public DeleteBatchPage getDeleteBatchPage()
+	{
+		return (deleteBatchPage == null) ? deleteBatchPage = new DeleteBatchPage(driver) : deleteBatchPage;
+	}
 
 }

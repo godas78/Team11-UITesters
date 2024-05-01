@@ -1,5 +1,7 @@
 package utilities;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 
 public class Helper {
@@ -20,4 +22,16 @@ public class Helper {
 		{
 		return driver.getTitle();
 		}
+		public static boolean validateErrorMsg(String errorMsg, String expectedErrorMsg) {
+			boolean flag = false;
+			try {
+				// assertEquals(true, errorMsg.contains(expectedErrorMsg));
+				assertEquals(errorMsg, expectedErrorMsg);
+				flag = true;
+			} catch (Exception e) {
+				flag = false;
+			}
+			return flag;
+		}
+
 }
