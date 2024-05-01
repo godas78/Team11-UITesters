@@ -8,6 +8,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -41,7 +43,9 @@ public class HomePage {
     int respCode = 200;
 	
 	@FindBy(id="username") WebElement username;
-	@FindBy(id="password") WebElement password;
+    @FindBy(xpath="//*[@id='mat-form-field-label-1']/span[1]") WebElement usertext;
+    @FindBy(xpath="//*[@id='mat-form-field-label-3']/span[1]") WebElement passwordtext;
+    @FindBy(id="password") WebElement password;
 	@FindBy (xpath  = "//button[@id='login']") WebElement loginBtn;
 	 @FindBy (xpath  = "//[@id='login']/span[1]") WebElement logintext ;
 	 @FindBy (xpath  = "//button[@id='login']") WebElement loginpageloginbtn;
@@ -80,16 +84,16 @@ public class HomePage {
 		
 	}
 	public void invalidURLstatus() {
-//		assertTrue(driver.getTitle().contains("404"));
+		assertTrue(driver.getTitle().contains("404"));
 		
-		String title = driver.getTitle();
-        if (title.contains("404")) {
-            System.out.println("404 Page not found error received for invalid URL");
-        } else {
-            System.out.println("Invalid URL did not return a 404 error");
-        }
+//		String title = driver.getTitle();
+//        if (title.contains("404")) {
+//            System.out.println("404 Page not found error received for invalid URL");
+//        } else {
+//            System.out.println("Invalid URL did not return a 404 error");
+//        }
 	}
-	public void broken_links() {
+	public void broken_links()  {
 List<WebElement> links = driver.findElements(By.tagName("a"));
         
         Iterator<WebElement> it = links.iterator();
@@ -130,6 +134,10 @@ List<WebElement> links = driver.findElements(By.tagName("a"));
 	
 		
 	}
+ 
+
+		
+	
 
 	public void spellchecker() {
 		// TODO Auto-generated method stub
@@ -173,7 +181,7 @@ List<WebElement> links = driver.findElements(By.tagName("a"));
 	}
 
 	public String usertext() {
-		return username.getText();
+		return usertext.getText();
 	}
 //		String expectedmsg = string;
 //		String actualmsg = username.getText();
@@ -186,7 +194,7 @@ List<WebElement> links = driver.findElements(By.tagName("a"));
 //	}
 
 	public String passwordtext() {
-		return password.getText();
+		return passwordtext.getText();
 //		String expectedmsg = string;
 //		String actualmsg = password.getText();
 //		Assert.assertEquals(expectedmsg,actualmsg);

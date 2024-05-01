@@ -77,14 +77,16 @@ TestContext testContext;
 //	}
 	@Then("Admin should User in the first text feild")
 	public void admin_should_user_in_the_first_text_feild() {
-		String actualmsg= homePage.usertext();
-	    Assert.assertEquals("User",actualmsg);
+		Assert.assertEquals(homePage.usertext(),"User");
+//		String actualmsg= homePage.usertext();
+//	    Assert.assertEquals("User",actualmsg);
 	}
 
 	@Then("Admin should Password in the second text feild")
 	public void admin_should_password_in_the_second_text_feild() {
-		String actualmsg= homePage.passwordtext();
-	    Assert.assertEquals("Password",actualmsg);
+		Assert.assertEquals(homePage.passwordtext(),"Password");
+//		String actualmsg= homePage.passwordtext();
+//	    Assert.assertEquals("Password",actualmsg);
 	}
 
 
