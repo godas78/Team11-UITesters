@@ -28,24 +28,6 @@ public class AddBatchSD {
 		
 	}	
 	
-	@Given("Admin is on dashboard page after Login")
-	public void admin_is_on_dashboard_page_after_login() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@When("Admin clicks {string} from navigation bar")
-	public void admin_clicks_from_navigation_bar(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("Admin clicks {string} button")
-	public void admin_clicks_button(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
 	
 	@Given("A new pop up with Batch details appears for add batch")
 	public void a_new_pop_up_with_batch_details_appears_for_add_batch() {
