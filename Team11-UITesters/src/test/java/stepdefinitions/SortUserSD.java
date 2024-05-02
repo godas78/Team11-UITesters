@@ -18,11 +18,9 @@ UserPageV2 sortUserSD;
 	public SortUserSD(TestContext context) {
 		testContext = context;
 		sortUserSD = testContext.getPageObjectManager().getUserPageV2();
-	
-		}
+			}
 @Given("Admin is on dashboard page after Login SU")
 public void admin_is_on_dashboard_page_after_login_su() {
-
 
 		Log.info("Admin is in the dashboard page");
 }

@@ -1,4 +1,5 @@
 @SortUser
+
 Feature: Sort user
 
 Background: Logged on the LMS portal as admin 

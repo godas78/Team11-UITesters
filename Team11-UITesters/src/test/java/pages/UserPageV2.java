@@ -100,56 +100,54 @@
 				List<String> sortedlist = originallist.stream().sorted().collect(Collectors.toList());
 				Assert.assertTrue(originallist.equals(sortedlist));
 			}
-		/*public void sortingMethod()
-		{
-	
-	
-			// driver.findElement(By.xpath("//button[contains(text(),'Sort')]")).click();
-			List<WebElement> tdList = (List<WebElement>) tablsrt;
-			String strArry [] = new String[tdList.size()];
-			for(int i=0;i < tdList.size();i++)
-			{
-				strArry[i]=tdList.get(i).getText();
-			}
-			/*
-			 * Compare the values
-			 
-			boolean sortFunctionality = true;
-			outer: 
-				for(int i=0;i < strArry.length;i++)
-				{
-					for(int j=i+1;j < i;j++)
-					{
-						int result = strArry[j].compareTo(strArry[i]);
-						if(!(result > 0))
-						{
-							//Log.logInfo("Data in the Table is not SORTED");
-								System.out.println("Data in the Table is not SORTED::" +strArry[j]+":::"+ strArry[i]);
-							sortFunctionality=false;
-							break outer;
-						}
-						else
-						{
-							//Log.logInfo("Data in the Table is SORTED");
-							System.out.println("Data in the Table is SORTED::" +strArry[j]+":::"+ strArry[i]);
-						}
-					}
-				}
-	
-	
-			if(sortFunctionality)
-			{
-				//Log.logInfo("SORT Functionality is working");
-				System.out.println("SORT Functionality is working");
-			}
-			else
-			{
-				//Log.logInfo("SORT Functionality is not working");
-				System.out.println("SORT Functionality is not working");
-			}
-	
-		} */
-	
+//		public void sortingMethod()
+//		{
+//				driver.findElement(By.xpath("//button[contains(text(),'Sort')]")).click();
+//			List<WebElement> tdList = (List<WebElement>) tablsrt;
+//			String strArry [] = new String[tdList.size()];
+//			for(int i=0;i < tdList.size();i++)
+//			{
+//				strArry[i]=tdList.get(i).getText();
+//			}
+//			
+//			//  Compare the values
+//			 
+//			boolean sortFunctionality = true;
+//			outer: 
+//				for(int i=0;i < strArry.length;i++)
+//				{
+//					for(int j=i+1;j < i;j++)
+//					{
+//						int result = strArry[j].compareTo(strArry[i]);
+//						if(!(result > 0))
+//						{
+//							//Log.logInfo("Data in the Table is not SORTED");
+//								System.out.println("Data in the Table is not SORTED::" +strArry[j]+":::"+ strArry[i]);
+//							sortFunctionality=false;
+//							break outer;
+//						}
+//						else
+//						{
+//							//Log.logInfo("Data in the Table is SORTED");
+//							System.out.println("Data in the Table is SORTED::" +strArry[j]+":::"+ strArry[i]);
+//						}
+//					}
+//				}
+//	
+//	
+//			if(sortFunctionality)
+//			{
+//				//Log.logInfo("SORT Functionality is working");
+//				System.out.println("SORT Functionality is working");
+//			}
+//			else
+//			{
+//				//Log.logInfo("SORT Functionality is not working");
+//				System.out.println("SORT Functionality is not working");
+//			}
+//	
+//		} 
+//	
 		public void clickUserIdArrow() throws InterruptedException
 		{
 			Thread.sleep(2000);

@@ -13,7 +13,6 @@ Feature: Delete multiple user
     And Admin is on Confirm Deletion alert DMU
     When Admin clicks "NO" button on the alert for delete multiple user DMU
     Then Admin should land on Manage User page and can see the selected user is not deleted from the data table DMU
-
   
   Scenario: Validate multiple user deletion by selecting multiple check boxes
   

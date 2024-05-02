@@ -3,7 +3,6 @@
 Feature: Delete user
   
 
-  
   Scenario: Validate row level delete icon
    Given Admin is on dashboard page after Login UM
     When Admin clicks User on the navigation bar UM
