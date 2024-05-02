@@ -1,8 +1,8 @@
 Feature: Add new user
 
   Background: 
-    Given Validate landing in User page and Admin is on dashboard page after Login
-    And   Admin clicks User from navigation bar for UM1
+    #Given Validate landing in User page and Admin is on dashboard page after Login
+    Given   Admin clicks User from navigation bar for UM1
 
   @tag1
   Scenario: Validate User Details Popup window

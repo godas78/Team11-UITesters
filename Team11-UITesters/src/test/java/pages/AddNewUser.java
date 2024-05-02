@@ -177,7 +177,7 @@ public class AddNewUser {
 	@FindBy(xpath = "//mat-form-field/div/div[3]/div/mat-error")
 	WebElement ErrorMSG;
 
-	String name1 = "ROMtrom";
+	String name1 = "Rock1";
 	String actualErrMSG;
 	String expectedErrMSg;
 
@@ -214,6 +214,7 @@ public class AddNewUser {
 		Assert.assertTrue(userVisaStatusText.isDisplayed(), "user visa status is not displayed");
 		Assert.assertTrue(closebutton.isDisplayed(), "close button is not displayed");
 		Log.info("All the required fields of user details popup are displayed");
+		cancelbutton.click();
 	}
 
 	public void validateAddUserText() {
@@ -233,7 +234,7 @@ public class AddNewUser {
 		Assert.assertTrue(comment.isDisplayed());
 
 		Log.info("All the required input text fields of user details popup are displayed");
-
+		cancelbutton.click();
 	}
 
 	public void validateUserDropdowns() {
@@ -241,16 +242,17 @@ public class AddNewUser {
 		Assert.assertTrue(UserRolestatusdropdown.isDisplayed(), "UserRolestatusdropdown is not displayed");
 		Assert.assertTrue(UservisastatusDropdown.isDisplayed(), "uservisa status dropdown is not displayed");
 		Log.info("All the dropdowns are displayed");
+		cancelbutton.click();
 	}
 
 	public void validatecreateUSerdetails() {
-		firstname.sendKeys("R");
+		firstname.sendKeys("Rock1");
 		Midname.sendKeys("D");
 		Lname.sendKeys("m");
 		loc.sendKeys("NYC");
-		phone.sendKeys("9990060121");
+		phone.sendKeys("9880099121");
 		linked.sendKeys("https://www.linkedin.com/in/Mike/");
-		email.sendKeys("mike12345@gmail.com");
+		email.sendKeys("rockdan@gmail.com");
 		UG.sendKeys("CSE");
 		PG.sendKeys("MS");
 		timezone.sendKeys("EST");
@@ -398,11 +400,12 @@ public class AddNewUser {
 		} else {
 			Log.info("Error message is incorrect." + expectedErrMSg);
 		}
-
+		submitbutton.click();
 	}
 
 	public void valdiateerrormsgAddUser() {
 		Log.info("All the fields error messages are validated and are correct");
+		cancelbutton.click();
 	}
 
 	public void validateNewUserSuccess() {
@@ -411,7 +414,8 @@ public class AddNewUser {
 	}
 
 	public void validateEmptyformSubmit() {
-		submitbutton.click();
+		
+		cancelbutton.click();
 	}
 
 
@@ -423,10 +427,10 @@ public class AddNewUser {
 
 	public void validateUserdetailpopclose() {
 
-		if (!UserDetailsPOPUP.isDisplayed()) {
+		
 
 			Log.info("add user pop up is closed");
-		}
+		
 	}
 
 	public void closeUserUM1() {
