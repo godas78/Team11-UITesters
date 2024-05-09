@@ -14,8 +14,8 @@
 		    	<source>1.8</source>
 		   		<target>1.8</target>
 		    	<encoding>UTF-8</encoding>
-		    </configuration>
-		 </plugin>		   
+		     </configuration>
+		  </plugin>		   
 		  
 		 <plugin>
     		<groupId>org.codehaus.mojo</groupId>
@@ -28,9 +28,12 @@
         	<artifactId>maven-surefire-plugin</artifactId>
         	<version>3.1.0</version>
         	
+        	
         	<configuration>
          	<suiteXmlFiles>
            	<suiteXmlFile>testng.xml</suiteXmlFile>
+           	<parallel>methods</parallel> <!-- You can use 'methods', 'classes', or 'both' -->
+             <threadCount>4</threadCount> <!-- Number of threads to use -->
           	</suiteXmlFiles>
         	</configuration>
       	</plugin>
