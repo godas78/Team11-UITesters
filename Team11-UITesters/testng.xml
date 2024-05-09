@@ -6,4 +6,9 @@
 		<package name="runners"/>
 	</packages>
    </test>
+   	<test name = "Parallel Tests" thread-count="5" parallel = "methods">
+      <classes>
+         <class name = "ParallelTest" />
+      </classes>
+   </test>
 </suite> <!-- Suite -->
